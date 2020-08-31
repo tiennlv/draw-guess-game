@@ -109,7 +109,7 @@ io.on("connection", socket => {
       connection => connection.username === room.listMember[0]
     ).id;
     // io.to(room.name).emit("playing", { room: room.name, id: isDrawing });
-    
+
     for (let j = 0; j < 3; j++) {
       for (let i = 0; i < room.listMember.length; i++) {
         const isDrawing = connections.find(
@@ -124,7 +124,6 @@ io.on("connection", socket => {
             let randomWord = words[index];
             io.to(room.name).emit("word", randomWord);
             room.word = randomWord;
-            
           }, 3000);
           clearTimeout();
         } else {
